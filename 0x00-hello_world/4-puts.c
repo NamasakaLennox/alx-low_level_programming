@@ -6,7 +6,7 @@
  *
  * Return : terminate the program
  */
-int main(void)
+int main(void) /* Description: returns 0 for success */
 {
 	/* Print using Puts */
 	char mystr[] = "\"Programming is like building a multilingual puzzle";
