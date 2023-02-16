@@ -1,13 +1,13 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
- * main - where the program should begin
+ * main - Entry point
  *
- * Description: prints \"Programming is like building a multilingual puzzle
+ * Description: prints "Programming is like building a multilingual puzzle"
  *
- * Return : Always 0 (Success)
+ * Return: Always 0 (Success)
  */
-int main(void) /* Description: returns 0 for success */
+int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
