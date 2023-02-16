@@ -2,9 +2,11 @@
 /**
  * main - where the program should begin
  *
+ * Description: prints \"Programming is like building a multilingual puzzle
+ *
  * Return : terminate the program
  */
-int main(void) /* where main program starts */
+int main(void)
 {
 	/* Print using Puts */
 	char mystr[] = "\"Programming is like building a multilingual puzzle";
