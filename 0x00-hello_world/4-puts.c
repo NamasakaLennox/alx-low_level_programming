@@ -1,6 +1,8 @@
 #include<stdio.h>
 /**
  * main - where the program should begin
+ *
+ * Return : terminate the program
  */
 int main(void) /* where main program starts */
 {
