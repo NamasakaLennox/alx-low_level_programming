@@ -1,5 +1,8 @@
 #include<stdio.h>
-int main(void) /* where program starts */
+/**
+ *  where program starts
+ */
+int main(void)
 {
 	/* Print using Puts */
 	char mystr[] = "\"Programming is like building a multilingual puzzle";
