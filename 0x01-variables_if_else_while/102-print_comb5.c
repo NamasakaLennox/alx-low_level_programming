@@ -21,7 +21,7 @@ int main(void)
 			{
 				for (l = j + 1; l <= '9'; l++)
 				{
-					if (n > 0)
+					if (n > '0')
 					{
 						putchar(',');
 						putchar(' ');
