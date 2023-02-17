@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 /**
@@ -17,7 +18,7 @@ int main(void)
 	}
 	for (x = 'a'; x <= 'e'; x++)
 	{
-		putchar(x)
+		putchar(x);
 	}
 	putchar('\n');
 	return (0);
