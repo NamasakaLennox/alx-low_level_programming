@@ -12,7 +12,7 @@ int main(void)
 	int i, j, n;
 	n = '0';
 
-	for (i = '0'; i <= '9'; i==)
+	for (i = '0'; i <= '9'; i++)
 	{
 		for (j = '1'; j <= '9'; j++)
 		{
