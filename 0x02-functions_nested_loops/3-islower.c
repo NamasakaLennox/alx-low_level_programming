@@ -2,6 +2,7 @@
 
 /**
  * _islower - checks for lowercase
+ * @c: integer argument
  *
  * Description: lowercase test
  *
