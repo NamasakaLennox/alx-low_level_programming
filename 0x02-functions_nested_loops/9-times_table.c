@@ -10,33 +10,41 @@
 
 void times_table(void)
 {
-	int row, column, product, tens, ones;
+	int row, column, product, counter;
 
 	for (row = 0; row <= 9; row++)
 	{
+		counter = 0;
 		for (column = 0; column <= 9; column++)
 		{
 			product = row * column;
-			tens = product / 10;
-			ones = product % 10;
-
-			if (column == 0)
+			if (counter > 0)
 			{
-				_putchar('0');
+				if (product < 10)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+				}
+				else
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 			}
-			else if (product < 10)
+			counter++;
+			if (product < 10)
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(ones + '0');
+				_putchar(product + '0');
 			}
 			else
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(tens + '0');
-				_putchar(ones + '0');
+				int a, b;
+
+				a = product / 10;
+				b = product % 10;
+				_putchar(a + '0');
+				_putchar(b + '0');
 			}
 		}
 		_putchar('\n');
