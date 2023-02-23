@@ -35,3 +35,13 @@ For numbers which are multiples of both three and five print FizzBuzz
 
 ## 10-print_triangle.c
 prints a triangle
+
+## 100-prime_factor.c
+finds and prints the largest prime factor of the number 612852475143
+
+## 101-print_number.c
+function that prints an integer.
+You can only use _putchar function to print
+You are not allowed to use long
+You are not allowed to use arrays or pointers
+You are not allowed to hard-code special values
