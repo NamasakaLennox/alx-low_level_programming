@@ -8,8 +8,8 @@
  */
 int _atoi(char *s)
 {
-	int count, sign;
-	int num, result, check;
+	int count, sign, result, check;
+	unsigned int num;
 
 	/* initialise sign as positive and number as zero */
 	count = 0;
