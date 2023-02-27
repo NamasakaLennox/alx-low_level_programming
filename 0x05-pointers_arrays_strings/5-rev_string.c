@@ -8,22 +8,22 @@
  */
 void rev_string(char *s)
 {
-	int i, max, half;
-	char first, last;
+	 /* "count, last, first" for counters, temp for temporary assignment */
+	int count, first, last, temp, length;
 
-	i = 0;
-	while (s[i] != '\0')
+	count = 0;
+	while (s[count] != '\0')
 	{
-		i++;
+		count++;
 	}
-	max = i - 1;
-	half = max / 2;
-	while (half >= 0)
+	length = count;
+	last = length - 1;
+	/* reverse string */
+	for (first = 0; first < last; first++)
 	{
-		first = s[max - half];
-		last = s[half];
-		s[half] = first;
-		s[max - half] = last;
-		half--;
+		temp = s[first];
+		s[first] = s[last];
+		s[last] = temp;
+		last--;
 	}
 }
