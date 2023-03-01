@@ -9,23 +9,19 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int count, length, i;
+	int i;
 
-	/* count length of string to be copied */
-	count = 0;
-	while (dest[count] != '\0')
-	{
-		count++;
-	}
-	length = count;
 	/* copy the string */
 	i = 0;
-	while (i <= length)
+	while (i < n && src[i] != '\0')
 	{
-		if (i < n)
-		{
-			dest[i] = src[i];
-			i++;
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
 	}
 	return (dest);
 }
