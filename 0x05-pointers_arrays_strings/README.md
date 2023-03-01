@@ -36,3 +36,14 @@ You are allowed to use printf
 ## 9-strcpy.c
 copies the string pointed to by src, including the terminating null byte (\0), to the buffer pointed to by dest.
 Return value: the pointer to dest
+
+## 100-atoi.c
+convert a string to an integer
+The number in the string can be preceded by an infinite number of characters
+You need to take into account all the - and + signs before the number
+If there are no numbers in the string, the function must return 0
+You are not allowed to use long
+You are not allowed to declare new variables of “type” array
+
+## 101-keygen.c
+a program that generates random valid passwords for the program 101-crackme
