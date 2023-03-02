@@ -6,7 +6,7 @@
  *
  * Return: no return value
  */
-void reverse (char *str)
+void reverse(char *str)
 {
 	int i = 0, first, last;
 	char temp;
@@ -46,7 +46,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	j--;
 	if (j >= size_r || i >= size_r) /* if either digit > buffer */
 		return (0);
-	while (j >= 0 || i >= 0 || carry ==1)
+	while (j >= 0 || i >= 0 || carry == 1)
 	{
 		if (i < 0)
 			num1 = 0; /* for when n2 is larger */
