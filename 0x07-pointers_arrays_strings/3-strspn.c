@@ -25,7 +25,7 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		/* end program if mismatch */
 		if (s[i] != accept[j])
-			break;
+			return (len);
 		i++;
 	}
 	return (len);
