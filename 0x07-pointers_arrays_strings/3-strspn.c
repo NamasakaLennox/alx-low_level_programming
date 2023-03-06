@@ -9,7 +9,8 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i = 0, j, len;
+	unsigned int len;
+	int i = 0, j;
 
 	while (s[i] != '\0')
 	{
@@ -25,7 +26,7 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		/* end program if mismatch */
 		if (s[i] != accept[j])
-			return (len);
+			break;
 		i++;
 	}
 	return (len);
