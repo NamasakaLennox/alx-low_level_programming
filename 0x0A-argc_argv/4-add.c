@@ -22,7 +22,10 @@ int main(int argc, char *argv[])
 	{
 		if (atoi(argv[count]))
 		{
-			sum += atoi(argv[count]);
+			if (atoi(argv[count]) > 0)
+			{
+				sum += atoi(argv[count]);
+			}
 		}
 		else
 		{
