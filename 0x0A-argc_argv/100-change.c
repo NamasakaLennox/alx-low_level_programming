@@ -18,8 +18,6 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	cash = atoi(argv[1]);
-	if (cash <= 0)
-		printf("%d\n", 0);
 	while (cash >= 25)
 	{
 		coins++;
