@@ -11,27 +11,19 @@
  */
 int main(int argc, char *argv[])
 {
-	int count, sum = 0;
+	int count, i, sum = 0;
 
-	if (argc == 1)
-	{
-		printf("0\n");
-		return (0);
-	}
 	for (count = 1; count < argc; count++)
 	{
-		if (atoi(argv[count]))
+		for (i = 0; argv[count][i] != '\0'; i++)
 		{
-			if (atoi(argv[count]) > 0)
+			if (argv[count][i] < 47 || argv[count][i] > 57)
 			{
-				sum += atoi(argv[count]);
+				printf("Error\n");
+				return (1);
 			}
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		sum += atoi(argv[count]);
 	}
 	printf("%d\n", sum);
 	return (0);
