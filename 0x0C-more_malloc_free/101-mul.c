@@ -157,7 +157,6 @@ char *multiply(char *s1, char *s2)
 int main(int argc, char *argv[])
 {
 	char *ans;
-	unsigned int len1, len2, size;
 
 	if (argc != 3)
 	{
