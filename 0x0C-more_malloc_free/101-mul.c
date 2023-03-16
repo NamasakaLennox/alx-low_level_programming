@@ -35,11 +35,8 @@ int _strlen(char *s)
 	int count;
 
 	count = 0;
-	/* counts the number of iterations */
-	while (s[count] != '\0')
-	{
-		count = count + 1;
-	}
+	while (s[count])
+		count++;
 	return (count);
 }
 
@@ -63,16 +60,14 @@ void _print(char *str)
  */
 int _isdigit(char *s1)
 {
-	int i = 0;
-
-	for (i = 0; s1[i] != '\0'; i++)
+	if (*s1 == '-' || *s1 == '+')
+		++s;
+	while (*s1)
 	{
-		if (s1[i] < 48 || s1[i] > 57)
-		{
-			return (1);
-		}
+		if (*s1 < 48 || *s1 > 57)
+			return (0);
 	}
-	return (0);
+	return (1);
 }
 
 /**
@@ -163,7 +158,7 @@ int main(int argc, char *argv[])
 		_print("Error\n");
 		exit(98);
 	}
-	if (_isdigit(argv[1]) == 1 || _isdigit(argv[2]) == 1)
+	if (!_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
 		_print("Error\n");
 		exit(98);
