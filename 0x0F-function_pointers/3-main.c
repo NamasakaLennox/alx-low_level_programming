@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	/* invalid operation provided */
 	if (!(strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0 ||
 	      strcmp(argv[2], "+") == 0 || strcmp(argv[2], "-") == 0 ||
-	      strcmp(argv[2], "*") == 0 || strlen(argv[2]) == 1))
+	      strcmp(argv[2], "*") == 0))
 	{
 		printf("Error\n");
 		exit(99);
