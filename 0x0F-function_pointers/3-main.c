@@ -12,6 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int result;
+	int (*ops)(int, int);
 
 	/* incorrect number of arguments */
 	if (argc != 4)
@@ -27,16 +28,17 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
+
+	/* get address of name of function */
+	ops = get_op_func(argv[2]);
+
 	/* invalid operation provided */
-	if (!(strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0 ||
-	      strcmp(argv[2], "+") == 0 || strcmp(argv[2], "-") == 0 ||
-	      strcmp(argv[2], "*") == 0))
+	if (ops == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-
-	result = get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3]));
+	result = ops(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 	return (0);
 }
