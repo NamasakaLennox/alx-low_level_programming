@@ -2,44 +2,38 @@
 
 /**
  * delete_nodeint_at_index - deletes a node at a certain index
- * @head: address of the first element address
- * @index: the element to delete
+ * @head: address of the head address
+ * @index: index to delete
  *
- * Return: 1 on success, 0 on fail
+ * Return: 1 on success, -1 on fail
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *previous = *head, *current;
-	unsigned int position = 0;
+	unsigned int position;
+	listint_t *current, *next;
 
-	if (*head == NULL) /* if no element */
-	{
-		/* free_listint2(head); */
+	if (!head || !*head)
 		return (-1);
-	}
 
 	current = *head;
-	if (index == 0) /* deleting the first element */
+
+	if (index == 0)
 	{
-		*head = (current)->next;
+		*head = (*head)->next;
 		free(current);
-	}
-	else /* deleting element in any other position */
-	{
-		while (position < index - 1 && current)
-		{
-			previous = previous->next;
-			position++;
-			if (previous == NULL || previous->next == NULL)
-			{
-				free_listint2(head);
-				return (-1);
-			}
-		}
-		current = previous->next;
-		previous->next = current->next;
-		free(current);
+		return (1);
 	}
 
+	position = 0;
+	while (position < index - 1)
+	{
+		current = current->next;
+		if (current == NULL)
+			return (-1);
+		position++;
+	}
+	next = current->next;
+	current->next = next->next;
+	free(next);
 	return (1);
 }
