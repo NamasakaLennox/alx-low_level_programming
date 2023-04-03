@@ -17,9 +17,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		/* free_listint2(head); */
 		return (-1);
 	}
+
+	current = *head;
 	if (index == 0) /* deleting the first element */
 	{
-		current = *head;
 		*head = (current)->next;
 		free(current);
 	}
