@@ -2,6 +2,33 @@
 #include <stdio.h>
 
 /**
+ * find_loop - finds where the loop begins
+ * @head: first element of the list
+ *
+ * Return: the address of where the loop begins
+ */
+listint_t *find_loop(listint_t *head)
+{
+	listint_t *check, *last = head;
+
+	if (head == NULL)
+		return (NULL);
+
+	while (last)
+	{
+		if (last == last->next) /* loops within itself */
+			return (last);
+		for (check = head; check != last; check = check->next)
+		{
+			if (check == last->next)
+				return (last->next);
+		}
+		last = last->next;
+	}
+	return (NULL);
+}
+
+/**
  * print_listint_safe - prints a list safely
  * @head: address of the first element
  * Description: goes through a list only once
@@ -11,27 +38,25 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current, *next = head;
+	listint_t *loop;
+	int flag = 1;
 	size_t nodes = 0;
 
 	if (head == NULL)
 		exit(98);
 
-	while (next)
+	loop = find_loop((listint_t *)head);
+
+	while ((head != loop || flag) && head)
 	{
-		current = next;
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (head == loop)
+			flag = 0;
+		head = head->next;
 		nodes++;
-		next = current->next;
-		/* finding the loop */
-		/* since we add nodes at the beginning, address of next */
-		/* should always be less than the previous */
-		if (current < next)
-		{
-			printf("-> [%p] %d\n", (void *)next, next->n);
-			break;
-		}
-		else if (next < current)
-			printf("[%p] %d\n", (void *)current, current->n);
 	}
+
+	if (loop)
+		printf("-> [%p] %d\n|", (void *)head, head->n);
 	return (nodes);
 }
