@@ -20,8 +20,6 @@ size_t print_listint_safe(const listint_t *head)
 	while (next)
 	{
 		current = next;
-		printf("[%p] %d\n", (void *)current, current->n);
-
 		nodes++;
 		next = current->next;
 		/* finding the loop */
@@ -32,6 +30,8 @@ size_t print_listint_safe(const listint_t *head)
 			printf("-> [%p] %d\n", (void *)next, next->n);
 			break;
 		}
+		else if (next < current)
+			printf("[%p] %d\n", (void *)current, current->n);
 	}
 	return (nodes);
 }
