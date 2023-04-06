@@ -7,15 +7,15 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int shift;
-	int index;
+	signed long int index;
 
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	/* index starts from 31 as an int is 4 bytes(32 bits) */
-	index = 31;
+	/* index starts from 1 less than the index as we count from zero */
+	index = sizeof(n) * 8 - 1;
 
 	/* get to the first non zero number */
 	while (index >= 0)
