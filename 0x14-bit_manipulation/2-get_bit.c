@@ -10,12 +10,15 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	int value;
-	unsigned long int shift;
+	unsigned int shift_bits;
 
-	shift = (n >> index);
-	if (!shift)
+	/* get the length of possible bits stored */
+	shift_bits = sizeof(n) * 8 - 1;
+
+	if (index > shift_bits)
 		return (-1);
-	value = shift & 1;
+
+	value = (n >> index) & 1;
 
 	return (value);
 }
