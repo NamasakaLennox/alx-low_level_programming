@@ -35,9 +35,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (f_open == -1)
 		return (-1);
 
-	char_print = write(f_open, text_content, _strlen(text_content));
-	if (char_print == -1)
-		return (-1);
+	if (text_content)
+	{
+		char_print = write(f_open, text_content, _strlen(text_content));
+		if (char_print == -1)
+			return (-1);
+	}
 
 	f_close = close(f_open);
 	if (f_close == -1)
