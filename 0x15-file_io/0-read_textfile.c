@@ -10,29 +10,41 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	size_t char_printed = 0;
-	FILE *file_des;
-	char c;
+	ssize_t char_print, char_read;
+	char *str_buf;
+	int f_open, f_close;
 
-	/* if there is a filename given and is not NULL */
-	if (!filename)
+	if (!filename) /* file name is NULL */
+		return (0);
+	f_open = open(filename, O_RDONLY); /* open file as read only */
+	if (f_open == -1)
 		return (0);
 
-	/* open the file */
-	file_des = fopen(filename, "r");
-	/* if open failed */
-	if (!file_des)
-		return (0);
-
-	/* read the data in the file */
-	while ((c = getc(file_des)) != EOF && char_printed < letters)
+	str_buf = malloc(sizeof(char) * letters); /* memory for buffer */
+	if (!str_buf) /* memory allocation failed */
 	{
-		putc(c, stdout);
-		char_printed++;
+		close(f_open);
+		return (0);
 	}
 
-	if (char_printed < letters && !EOF)
+	char_read = read(f_open, str_buf, letters); /* read the file */
+	if (char_read == -1) /* fail to read */
+	{
+		free(str_buf);
 		return (0);
-
-	return (char_printed);
+	}
+	f_close = close(f_open); /* close file */
+	if (f_close == -1) /* failed to close */
+	{
+		free(str_buf);
+		return (0);
+	}
+	char_print = write(STDOUT_FILENO, str_buf, char_read); /* print */
+	if (char_print == -1 || char_print != char_read) /* failed to print */
+	{
+		free(str_buf);
+		return (0);
+	}
+	free(str_buf);
+	return (char_read);
 }
