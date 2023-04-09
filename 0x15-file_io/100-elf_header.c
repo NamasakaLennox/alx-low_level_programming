@@ -91,7 +91,7 @@ void print_class(unsigned char *class)
 void print_data(unsigned char *data)
 {
 	printf("  Data:                              ");
-	switch(data[EI_DATA])
+	switch (data[EI_DATA])
 	{
 	case ELFDATANONE:
 		printf("none\n");
@@ -255,29 +255,25 @@ int main(int argc, char *argv[])
 	/* correct number of arguments */
 	if (argc != 2 || !argv[1])
 	{
-		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0], exit(98);
 	}
 	f_open = open(argv[1], O_RDONLY); /* open the file as read only */
 	if (f_open < 0) /* if open failed */
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1], exit(98);
 	}
 	header = malloc(sizeof(Elf64_Ehdr)); /* allocate memory space */
 	if (!header) /* if allocation failed */
 	{
 		close_file(f_open);
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1], exit(98);
 	}
 	f_read = read(f_open, header, sizeof(Elf64_Ehdr));
 	if (f_read < 0) /* if read fails */
 	{
 		free(header);
 		close_file(f_open);
-		dprintf(STDERR_FILENO, "Error: %s: No such file\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: %s: No such file\n", argv[1], exit(98);
 	}
 	/* the elements to display */
 	check_file(header->e_ident);
