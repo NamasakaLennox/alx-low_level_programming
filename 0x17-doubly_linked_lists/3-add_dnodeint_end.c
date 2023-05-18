@@ -21,7 +21,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	new->n = n;
 	new->next = NULL;
 
-	while(last) /* find last element */
+	while (last) /* find last element */
 	{
 		if (last->next == NULL)
 		{
