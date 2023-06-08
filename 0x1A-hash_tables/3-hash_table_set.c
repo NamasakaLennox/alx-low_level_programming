@@ -16,7 +16,7 @@ hash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 	new->key = malloc(strlen(key) + 1);
 	new->value = malloc(strlen(value) + 1);
-	strcpy(new->key, key);
+	new->key = key;
 	strcpy(new->value, value);
 	new->next = NULL;
 
@@ -42,7 +42,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!key || key[0] == '\0')
 		return (0);
 	if (!value)
-		return(0);
+		return (0);
 
 	/* get the index of the key */
 	index = key_index((const unsigned char *)key, ht->size);
