@@ -41,6 +41,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	if (!key || key[0] == '\0')
 		return (0);
+	if (!value)
+		return(0);
 
 	/* get the index of the key */
 	index = key_index((const unsigned char *)key, ht->size);
