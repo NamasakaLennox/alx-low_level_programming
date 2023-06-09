@@ -14,8 +14,6 @@ hash_node_t *create_node(const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (NULL);
-	new->key = malloc(strlen(key) + 1);
-	new->value = malloc(strlen(value) + 1);
 
 	new->key = strdup(key);
 	new->value = strdup(value);
