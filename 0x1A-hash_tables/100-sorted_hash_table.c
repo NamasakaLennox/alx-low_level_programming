@@ -41,7 +41,7 @@ shash_table_t *shash_table_create(unsigned long int size)
  *
  * Return: returns the node created, NULL if error occured
  */
-shash_node_t *create_node(const char *key, const char *value)
+shash_node_t *create_node_sorted(const char *key, const char *value)
 {
 	shash_node_t *new;
 
@@ -137,7 +137,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		temp = temp->next;
 	}
 	/* create a new node */
-	node = create_node(key, value);
+	node = create_node_sorted(key, value);
 	if (!node)
 		return (0);
 	/* add new node to hash table */
