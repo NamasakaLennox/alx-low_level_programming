@@ -15,33 +15,42 @@ def island_perimeter(grid):
     rows = len(grid)
     columns = len(grid[0])
     perimeter = 0
-    top = 0
-    bottom = 0
-    flag = 0
 
     # iterate through the rows and columns
+    # throwing exception means it's the last cell on check side
     for i in range(rows):
         for j in range(columns):
-            if grid[i][j] == 0:
-                continue
-
-            flag = 1
-            # fill perimeter for bottom and top rows
-            if i == 0:
-                top += 1
-            elif i == rows - 1:
-                bottom += 1
-            else:  # any other colums i.e neither top nor bottom
-                # check if cell bottom
-                if grid[i + 1][j] == 0:
+            if grid[i][j] == 1:
+                # check if cell top is water or first row
+                if grid[i - 1][j] == 0 or i == 0:
                     perimeter += 1
-                # check if cell top
-                if grid[i - 1][j] == 0:
-                    perimeter += 1
-        if flag == 1:  # check if the row had any land
-            perimeter += 2  # add for sides
-        flag = 0
 
-    perimeter += top + bottom
+                # check if cell bottom is water or last row
+                try:
+                    if grid[i + 1][j] == 0:
+                        perimeter += 1
+                except IndexError:
+                    perimeter += 1
+
+                # check if cell left is water
+                if grid[i][j - 1] == 0 or j == 0:
+                    perimeter += 1
+
+                # check if cell right is water
+                try:
+                    if grid[i][j + 1] == 0:
+                        perimeter += 1
+                except IndexError:
+                    perimeter += 1
 
     return (perimeter)
+
+if __name__ == "__main__":
+    grid = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ]
+    print(island_perimeter(grid))
