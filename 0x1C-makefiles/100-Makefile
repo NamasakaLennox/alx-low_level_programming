@@ -5,8 +5,7 @@ NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 .PHONY: all clean oclean fclean re
-
-all: $(OBJ) m.h  # builds executable
+all: m.h $(OBJ)  # builds executable
 	$(CC) $(OBJ) -o $(NAME)
 clean:  # deletes emacs and vim temp files and the executable
 	$(RM) *~ $(NAME)
