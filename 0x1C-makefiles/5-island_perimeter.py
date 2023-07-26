@@ -45,7 +45,9 @@ def island_perimeter(grid):
 
     return (perimeter)
 
+
 if __name__ == "__main__":
+    # test for the function
     grid = [
         [0, 0, 0, 0, 0, 0],
         [0, 1, 0, 0, 0, 0],
